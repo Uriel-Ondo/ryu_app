@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Supprimer une règle</h2>
+<form method="POST">
+    <div class="mb-3"><label>DPID</label><input name="dpid" class="form-control" required></div>
+    <div class="mb-3"><label>Port d'entrée</label><input name="in_port" class="form-control"></div>
+    <div class="mb-3"><label>Adresse MAC source</label><input name="dl_src" class="form-control"></div>
+    <div class="mb-3"><label>Adresse MAC destination</label><input name="dl_dst" class="form-control"></div>
+    <button type="submit" class="btn btn-danger">Supprimer</button>
+</form>
+{% endblock %}

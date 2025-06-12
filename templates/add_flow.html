@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Ajouter une règle de flux</h2>
+<form method="POST">
+    <div class="mb-3"><label>DPID</label><input name="dpid" class="form-control" required></div>
+    <div class="mb-3"><label>Priorité</label><input name="priority" class="form-control" required></div>
+    <div class="mb-3"><label>Port d'entrée</label><input name="in_port" class="form-control" required></div>
+    <div class="mb-3"><label>Adresse MAC source</label><input name="dl_src" class="form-control"></div>
+    <div class="mb-3"><label>Adresse MAC destination</label><input name="dl_dst" class="form-control"></div>
+    <div class="mb-3"><label>Port de sortie</label><input name="out_port" class="form-control" required></div>
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+</form>
+{% endblock %}

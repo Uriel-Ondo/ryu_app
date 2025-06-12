@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Règles actives</h2>
+{% if error %}
+    <div class="alert alert-danger">Erreur : {{ error }}</div>
+{% endif %}
+{% if flows %}
+    {% for dpid, rules in flows.items() %}
+        <h4>Switch {{ dpid }}</h4>
+        <table class="table table-bordered table-sm table-striped">
+            <thead>
+                <tr>
+                    <th>Priorité</th>
+                    <th>In Port</th>
+                    <th>DL Src</th>
+                    <th>DL Dst</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rule in rules %}
+                <tr>
+                    <td>{{ rule.priority }}</td>
+                    <td>{{ rule.match.in_port or '' }}</td>
+                    <td>{{ rule.match.dl_src or '' }}</td>
+                    <td>{{ rule.match.dl_dst or '' }}</td>
+                    <td>{{ rule.actions }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endfor %}
+{% else %}
+    <p>Aucune règle trouvée.</p>
+{% endif %}
+{% endblock %}
